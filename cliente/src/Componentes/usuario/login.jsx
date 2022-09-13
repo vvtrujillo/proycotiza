@@ -1,17 +1,17 @@
 import axios from "axios";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import { Button, Col, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { useContext } from "react";
 import UserContext from "../Context/user-context";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate,Link } from "react-router-dom";
 
 
 //vamos a crear una variable para setear los valores del formulario en blanco.
 //como este es el login solo son 2 campos, usuario y contraseña.
 
 const estadoInicial = {
-    usuario: '',
+    username: '',
     password: ''
 }
 
@@ -33,6 +33,8 @@ const Login = () => {
         e.preventDefault();
         axios.post('/api/v1/login', formulario)
             .then(respuesta => {
+                console.log(respuesta.data.error);
+                console.log(respuesta);
                 if(!respuesta.data.error) {
                     context.setUsuario(respuesta.data.datos);
                     sessionStorage.setItem('USUARIO', JSON.stringify(respuesta.data.datos));
@@ -43,34 +45,39 @@ const Login = () => {
             })
     }
 
-
     return (
         <React.Fragment>
-            <Form>
-                <FormGroup>
-                    <Label>username: </Label>
-                    <Input type="text"
-                           name="username"
-                           required
-                           value={formulario.usuario}
-                           onChange={actualizarFormulario}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label>password: </Label>
-                    <Input type="password"
-                           name="password"
-                           required
-                           value={formulario.password}
-                           onChange={actualizarFormulario}
-                           minLength={6}
-                    />
-                </FormGroup>
-                <Button type="submit"
-                        color="primary"
-
-                >Ingresar</Button>
-            </Form>
+            <div className="login">
+                <div className="login-l">
+                    <Container>
+                        <Form onSubmit={login}>
+                            <FormGroup>
+                                <Label>username: </Label>
+                                <Input type="text"
+                                    name="username"
+                                    required
+                                    value={formulario.username}
+                                    onChange={actualizarFormulario}
+                                />
+                            </FormGroup>
+                            <FormGroup>
+                                <Label>password: </Label>
+                                <Input type="password"
+                                    name="password"
+                                    required
+                                    value={formulario.password}
+                                    onChange={actualizarFormulario}
+                                    minLength={6}
+                                />
+                            </FormGroup>
+                            <Row>
+                                <Col><Button type="submit" color="primary" >Ingresar</Button></Col>
+                                <Col><Link to={'/registro'}><Button color="success">Registrar</Button></Link></Col>
+                            </Row>
+                        </Form>
+                    </Container>                    
+                </div>
+            </div>            
         </React.Fragment>
     )
 }
