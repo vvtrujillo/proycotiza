@@ -30,13 +30,13 @@ function App() {
   }, [])
 
   return (
-    <React.Fragment>
+    <UserContext.Provider value={{usuario, setUsuario}}>
       <Routes>
-        <Route path={'/login'} element={<Login></Login>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registro' element={<Registro />}></Route>
         <Route path='/*' element={<MainCotizador />}></Route>
       </Routes>
-    </React.Fragment>
+    </UserContext.Provider>
   );
 }
 

@@ -6,8 +6,7 @@ const { secretKey } = require('../config/jwt.config')
 
 module.exports.registrar = (req, res) => {
      Usuario.create(req.body)
-        .then(usuario => {
-            //console.log(usuario);
+        .then(usuario => {            
             res.json({
                 error: false,
                 mensaje: 'El usuario se ha registrado exitosamente'
@@ -34,7 +33,7 @@ module.exports.login = (req, res) => {
                 bcrypt.compare(req.body.password, usuario.password)
                     .then(valido => {
                         if(valido) {
-
+                        console.log('login',req.body.password, usuario.password);
                         const payload = {
                             _id: usuario._id,
                             nombre: usuario.nombre,
