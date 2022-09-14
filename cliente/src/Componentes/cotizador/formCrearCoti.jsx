@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "reactstrap";
 
 
 
@@ -7,7 +8,9 @@ const FormCrearCoti = () => {
 
     return(
         <React.Fragment>
-            <h1>Formulario Cotizacion</h1>
+            <Container>
+                <h1>Crear Cotizacion</h1>
+            </Container>
         </React.Fragment>
     )
 }

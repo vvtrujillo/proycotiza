@@ -9,6 +9,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import MainCotizador from './Componentes/cotizador/mainCotizador';
+import FormCrearCoti from './Componentes/cotizador/formCrearCoti';
+import FormCreaCliente from './Componentes/Maestros/formCreaCliente';
 
 
 function App() {
@@ -35,6 +37,8 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registro' element={<Registro />}></Route>
         <Route path='/*' element={<MainCotizador />}></Route>
+        <Route path='/cotizar' element={<FormCrearCoti></FormCrearCoti>}></Route>
+        <Route path='/creacliente' element={<FormCreaCliente></FormCreaCliente>}></Route>
       </Routes>
     </UserContext.Provider>
   );
