@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import MainCotizador from './Componentes/cotizador/mainCotizador';
 import FormCrearCoti from './Componentes/cotizador/formCrearCoti';
 import FormCreaCliente from './Componentes/Maestros/formCreaCliente';
+import FormCreaProducto from './Componentes/Maestros/formCreaProducto';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         <Route path='/*' element={<MainCotizador />}></Route>
         <Route path='/cotizar' element={<FormCrearCoti></FormCrearCoti>}></Route>
         <Route path='/creacliente' element={<FormCreaCliente></FormCreaCliente>}></Route>
+        <Route path='/creaproducto' element={<FormCreaProducto></FormCreaProducto>}></Route>
       </Routes>
     </UserContext.Provider>
   );

@@ -55,3 +55,10 @@
   width: 500px;
   height: 300px;
 }
+
+.barra-nav{
+  height: 50px;
+  width: auto;
+  background-color: rgb(157, 187, 157);
+  border-block-end: solid black 2px;
+}

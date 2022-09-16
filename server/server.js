@@ -11,6 +11,8 @@ app.use(express.urlencoded({extended:true}));
 
 require('./config/mongo.config');
 require('./routes/usuario.route')(app);
+require('./routes/maestros/cliente.route')(app);
+require('./routes/maestros/producto.route')(app);
 
 
 app.listen(port, () => console.log('Servidor arriba en puerto ', port));
