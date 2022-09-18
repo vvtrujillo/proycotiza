@@ -70,6 +70,14 @@ const FormCrearCoti = () => {
                         }
                     </Input>
                 </FormGroup>
+                <FormGroup>
+                  <Label>Cantidad</Label>
+                  <Input type="number"
+                         placeholder="cantidad"
+                         required
+                         min={0}>
+                  </Input>
+                </FormGroup>
                 <Button color='primary' type="submit">Generar Cotización</Button>
               </Form>                
             </Container>

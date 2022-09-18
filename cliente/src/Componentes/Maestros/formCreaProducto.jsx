@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Button, Container, Form, FormGroup, Input, Label } from "reactstrap";
 import Swal from "sweetalert2";
 import TopNav from "../Navs/topNav";
+import ListarProductos from "./listarProducto";
 
 
 const estadoInicial = {
@@ -119,6 +120,7 @@ const FormCreaProducto = () => {
                     </FormGroup>
                     <Button type="submit" color="primary">Guardar Producto</Button>
                 </Form>
+                <ListarProductos></ListarProductos>
             </Container>
         </React.Fragment>
     )

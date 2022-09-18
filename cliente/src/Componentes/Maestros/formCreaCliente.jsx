@@ -5,6 +5,7 @@ import axios from 'axios';
 import {useParams} from 'react-router-dom';
 import Swal from 'sweetalert2';
 import TopNav from "../Navs/topNav";
+import ListarCliente from "./listarCliente";
 
 const estadoInicial = {
     razonsocial: '',
@@ -87,6 +88,7 @@ const FormCreaCliente = () => {
                     </FormGroup>
                     <Button type="submit" color="primary">Guardar Cliente</Button>
                 </Form>
+                <ListarCliente datos={datos}></ListarCliente>
             </Container>
         </React.Fragment>
     )

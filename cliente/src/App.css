@@ -36,29 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-/*Estilo para el Login*/
-
-.login{
-  padding: 300px;
-  display: flex;  
-}
-
-.login-l{
-  background-color: white;
-  border-right: solid 2px rgb(57, 81, 189);
-  width: 500px;
-  margin: 30px;
-}
-.login-r{
-  background-color: aquamarine;
-  width: 500px;
-  height: 300px;
-}
-
-.barra-nav{
-  height: 50px;
-  width: auto;
-  background-color: rgb(157, 187, 157);
-  border-block-end: solid black 2px;
-}

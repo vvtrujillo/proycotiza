@@ -47,37 +47,43 @@ const Login = () => {
 
     return (
         <React.Fragment>
-            <div className="login">
-                <div className="login-l">
-                    <Container>
-                        <Form onSubmit={login}>
-                            <FormGroup>
-                                <Label>username: </Label>
-                                <Input type="text"
-                                    name="username"
-                                    required
-                                    value={formulario.username}
-                                    onChange={actualizarFormulario}
-                                />
-                            </FormGroup>
-                            <FormGroup>
-                                <Label>password: </Label>
-                                <Input type="password"
-                                    name="password"
-                                    required
-                                    value={formulario.password}
-                                    onChange={actualizarFormulario}
-                                    minLength={6}
-                                />
-                            </FormGroup>
-                            <Row>
-                                <Col><Button type="submit" color="primary" >Ingresar</Button></Col>
-                                <Col><Link to={'/registro'}><Button color="success">Registrar</Button></Link></Col>
-                            </Row>
-                        </Form>
-                    </Container>                    
+            <section className="background-radial-gradient overflow-hidden">
+                <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+                    <div className="row gx-lg-5 align-items-center mb-5">
+                        <div className="col-lg-6 mb-5 mb-lg-0" style={{'z-index': 10}}>
+                            <h1 class="my-5 display-5 fw-bold ls-tight" style={{'color': 'white'}}>Bienvenido</h1>
+                        </div>
+                        <div className="col-lg-6 mb-5 mb-lg-0 position-relative">
+                            <div className="card bg-glass">
+                                <div className="card-body px-4 py-5 px-md-5">
+                                    <Form onSubmit={login}>                                        
+                                        <FormGroup>
+                                            <Label>Username: </Label>
+                                            <Input type="text"
+                                                name="username"
+                                                required
+                                                value={formulario.username}
+                                                onChange={actualizarFormulario}
+                                            />
+                                        </FormGroup>                        
+                                        <FormGroup>
+                                            <Label>Password: </Label>
+                                            <Input type="password"
+                                                name="password"
+                                                required
+                                                value={formulario.password}
+                                                onChange={actualizarFormulario}
+                                                minLength={6}
+                                            />
+                                        </FormGroup>                                        
+                                        <Button type="submit" color="primary" >Ingresar</Button>
+                                    </Form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>            
+            </section>            
         </React.Fragment>
     )
 }

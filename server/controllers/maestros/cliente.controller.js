@@ -31,3 +31,17 @@ module.exports.crear = (req,res) => {
             })
         })
 }
+
+module.exports.eliminar = (req, res) => {
+    ClienteMaestro.findByIdAndDelete(req.params.id)
+        .then(resp => {
+            res.json({
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'Ha ocurrido un error'
+            })
+        });
+}
