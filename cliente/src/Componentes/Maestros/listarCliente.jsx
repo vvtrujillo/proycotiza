@@ -5,37 +5,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const ListarCliente = () => {
-
+const ListarCliente = ({EliminarClienteFn}) => {
+    
     const[datosClientes, setDatosClientes] = useState([]);
-
-    const eliminar = (cliente,id) => {
-        Swal.fire({
-            text: `Seguro que desea eliminar el proyecto: ${cliente.razonsocial}?`,
-            title: 'Eliminar',
-            showCancelButton: true,
-            confirmButtonText: 'Si',
-            confirmButtonColor: 'red',
-            cancelButtonText: 'No',
-            cancelButtonColor:'green'
-        }).then(resp => {
-            if(resp.isConfirmed) {
-                axios.delete(`/api/v1/clientes/${cliente._id}`)
-                    .then(respuesta => {
-                        if(!respuesta.data.error) {
-                            Swal.fire('Exito','Se ha eliminado el proyecto','success');
-                            let nuevoDatos = datosClientes.filter((dato)=>{
-                                return dato._id != cliente._id
-                            }) 
-                            setDatosClientes(nuevoDatos);                           
-                        } else {
-                            Swal.fire('Ooops!!!', respuesta.data.mensaje, 'error');
-                        }
-                    });                    
-            }
-        })
-    }
-
 
     useEffect(() => {
         axios.get('/api/v1/clientes')
@@ -68,7 +40,7 @@ const ListarCliente = () => {
                                     <Link to={`/editar/${j._id}`}>
                                         <Button color="primary" >Editar</Button>
                                     </Link>                                    
-                                    <Button color="danger" onClick={e => eliminar(j.nombre, j._id)}>Eliminar</Button>
+                                    <Button color="danger" onClick={e => EliminarClienteFn(j.razonsocial, j._id)}>Eliminar</Button>
                                 </td>
                             </tr>
                         )

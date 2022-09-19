@@ -19,6 +19,8 @@ function App() {
   const navigate = useNavigate();   //creo esta variable para navegar en la aplicacion
   const [usuario, setUsuario] = useState(); //estado usuario para trabajar con los datos del usuario login
 
+  const[datosClientes, setDatosClientes] = useState([]);
+
 
   useEffect(() => {
     if(!usuario) {
@@ -32,6 +34,35 @@ function App() {
     }
   }, [])
 
+
+  const EliminarCliente = (cliente) => {
+    console.log('ingreso a eliminar cliente');
+    Swal.fire({
+        text: `Seguro que desea eliminar el proyecto: ${cliente.razonsocial}?`,
+        title: 'Eliminar',
+        showCancelButton: true,
+        confirmButtonText: 'Si',
+        confirmButtonColor: 'red',
+        cancelButtonText: 'No',
+        cancelButtonColor:'green'
+    }).then(resp => {
+        if(resp.isConfirmed) {
+            axios.delete(`/api/v1/clientes/${cliente._id}`)
+                .then(respuesta => {
+                    if(!respuesta.data.error) {
+                        Swal.fire('Exito','Se ha eliminado el proyecto','success');
+                        let nuevoDatos = datosClientes.filter((dato)=>{
+                            return dato._id != cliente._id
+                        }) 
+                        setDatosClientes(nuevoDatos);                           
+                    } else {
+                        Swal.fire('Ooops!!!', respuesta.data.mensaje, 'error');
+                    }
+                });                    
+        }
+    })
+  }
+
   return (
     <UserContext.Provider value={{usuario, setUsuario}}>
       <Routes>
@@ -42,7 +73,7 @@ function App() {
           <Route path='/registro' element={<Registro />}></Route>
           <Route path='/*' element={<MainCotizador />}></Route>
           <Route path='/cotizar' element={<FormCrearCoti></FormCrearCoti>}></Route>
-          <Route path='/creacliente' element={<FormCreaCliente></FormCreaCliente>}></Route>
+          <Route path='/creacliente' element={<FormCreaCliente EliminarClienteFn={EliminarCliente}></FormCreaCliente>}></Route>
           <Route path='/creaproducto' element={<FormCreaProducto></FormCreaProducto>}></Route>
         </Routes>
       </div>      
