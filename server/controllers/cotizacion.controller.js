@@ -39,7 +39,7 @@ module.exports.crear = (req, res) => {
 module.exports.crearPdf = (req, res) => {
     Cotizacion.findById(req.params.id)
         .then(resp =>{
-            console.log('resp: ', resp);
+            //console.log('resp: ', resp);
             let pdfDoc = new PDFDocument;
             pdfDoc.pipe(fs.createWriteStream('./pdfs/SampleDocument.pdf'));
             pdfDoc.text(`${resp.cliente}, ${resp.producto}, ${resp.cantidad}`);

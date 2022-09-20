@@ -15,6 +15,21 @@ module.exports.listar = (req,res) => {
         })
 }
 
+module.exports.listarPorId = (req,res) => {    
+    ClienteMaestro.findById(req.params.id)
+        .then(resp =>{
+            res.json({
+                dataClient: resp,
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'Ha ocurrido un error al traer los clientes.'
+            })
+        })
+}
+
 module.exports.crear = (req,res) => {
     ClienteMaestro.create(req.body)    
         .then(resp => {
@@ -34,6 +49,20 @@ module.exports.crear = (req,res) => {
 
 module.exports.eliminar = (req, res) => {
     ClienteMaestro.findByIdAndDelete(req.params.id)
+        .then(resp => {
+            res.json({
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'Ha ocurrido un error'
+            })
+        });
+}
+
+module.exports.actualizar = (req,res) => {
+    ClienteMaestro.findByIdAndUpdate(req.params.id)
         .then(resp => {
             res.json({
                 error: false

@@ -37,7 +37,10 @@ const ViewCotizacion = () => {
             <Container>
                 <Button onClick={buscarPdf}>Generar PDF</Button>
                 {pdfSource && <iframe src={pdfSource} title="description" height={300} width={300}></iframe> }                
-            </Container>            
+            </Container>
+            <div className='content-main-footer'>
+                <p>Proyecto cotizador - Victor Valenzuela</p>
+            </div>        
         </div>
     )
 }

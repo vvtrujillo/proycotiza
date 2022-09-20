@@ -11,6 +11,7 @@ import FormCreaCliente from './Componentes/Maestros/formCreaCliente';
 import FormCreaProducto from './Componentes/Maestros/formCreaProducto';
 import ListarCotizaciones from './Componentes/cotizador/listarCotizaciones';
 import ViewCotizacion from './Componentes/cotizador/viewCotizacion';
+import EditaClientes from './Componentes/Maestros/editaClientes';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/editaproducto' element={<FormCreaProducto></FormCreaProducto>}></Route>
         <Route path='/revisarcotizaciones' element={<ListarCotizaciones></ListarCotizaciones>}></Route>
         <Route path='/revisarcotizacion/:id' element={<ViewCotizacion></ViewCotizacion>}></Route>
+        <Route path='/editarcliente/:id' element={<EditaClientes></EditaClientes>}></Route>
       </Routes>      
     </UserContext.Provider>
   );

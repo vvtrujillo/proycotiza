@@ -4,6 +4,8 @@ import { Link, Route, Router, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import {GrEdit} from 'react-icons/gr'
+
 
 const ListarCliente = () => {
     
@@ -47,7 +49,7 @@ const ListarCliente = () => {
     }
 
     return(
-        <Container style={{'padding': '30px'}}>            
+        <Container style={{'marginTop': '30px'}}>            
             <Table striped bordered hover>
                 <thead>
                     <tr>
@@ -62,8 +64,10 @@ const ListarCliente = () => {
                             <tr key={i}>
                                 <td>{j.razonsocial}</td>
                                 <td>{j.email}</td>
-                                <td>                                    
-                                    <Button onClick={() => editarCliente(i)} color="primary" >Editar</Button>                                    
+                                <td>
+                                    <Link to={`/editarcliente/${j._id}`}>
+                                        <GrEdit style={{'cursor':'pointer'}}></GrEdit>
+                                    </Link>                         
                                     <Button color="danger" onClick={e => Eliminar(j.razonsocial, j._id)}>Eliminar</Button>
                                 </td>
                             </tr>

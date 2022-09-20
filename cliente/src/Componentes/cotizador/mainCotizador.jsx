@@ -23,12 +23,7 @@ const MainCotizador = () => {
                         <Link to={'/cotizar'}>
                             <Button color="primary">Cotizar</Button>
                         </Link>                        
-                    </div>
-                    <div className="content-main-icon">
-                        <Link to={'/cotizar'}>
-                            <Button color="primary">Cotizar</Button>
-                        </Link>
-                    </div>
+                    </div>                    
                 </div>
             </Container>
             <div className='content-main-footer'>

@@ -72,7 +72,7 @@ const ListarProductos = () => {
       }
 
     return(
-        <Container style={{'padding': '30px'}}>            
+        <Container style={{'marginTop': '30px'}}>            
             <Table striped bordered hover>
                 <thead>
                     <tr>
