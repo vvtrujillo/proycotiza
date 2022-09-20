@@ -13,6 +13,7 @@ require('./config/mongo.config');
 require('./routes/usuario.route')(app);
 require('./routes/maestros/cliente.route')(app);
 require('./routes/maestros/producto.route')(app);
+require('./routes/cotizacion.route')(app);
 
 
 app.listen(port, () => console.log('Servidor arriba en puerto ', port));

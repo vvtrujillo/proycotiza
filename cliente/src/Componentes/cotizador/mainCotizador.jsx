@@ -3,6 +3,7 @@ import { Link, Route, Router, useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
 import FormCrearCoti from "./formCrearCoti";
 import {Routes} from 'react-router-dom';
+import TopNav from "../Navs/topNav";
 
 const MainCotizador = () => {
 
@@ -13,22 +14,27 @@ const MainCotizador = () => {
     }
 
     return(
-        <Container>
-            <Button color='danger' onClick={salir}>Salir</Button>
-            <Link to={'/'}>
-                <Button color="primary">Home</Button>
-            </Link>
-            <Link to={'/cotizar'}>                    
-                <Button color="primary">Cotizar</Button>
-            </Link>
-            <Link to={'/creacliente'}>
-                <Button color='primary'>Crear Cliente</Button>
-            </Link>
-            <Link to={'/creaproducto'}>
-                <Button color='primary'>Crear Producto</Button>
-            </Link>
-            <h1>Cotizador</h1>
-        </Container>
+        <div className="content-app">
+            <TopNav></TopNav>
+            <Container>
+                <div className="content-main">
+                    <h1>Bienvenido al cotizador</h1>
+                    <div className="content-main-icon">
+                        <Link to={'/cotizar'}>
+                            <Button color="primary">Cotizar</Button>
+                        </Link>                        
+                    </div>
+                    <div className="content-main-icon">
+                        <Link to={'/cotizar'}>
+                            <Button color="primary">Cotizar</Button>
+                        </Link>
+                    </div>
+                </div>
+            </Container>
+            <div className='content-main-footer'>
+                <p>Proyecto cotizador - Victor Valenzuela</p>
+            </div>
+        </div>        
     )
 }
 

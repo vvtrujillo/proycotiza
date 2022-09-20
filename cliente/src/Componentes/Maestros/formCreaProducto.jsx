@@ -38,7 +38,7 @@ const FormCreaProducto = () => {
                     Swal.fire('','El Producto se creó correctamente', 'success');
                     return true
                 }else{
-                    Swal.fire('','No se pudo crear el producto')
+                    Swal.fire('','No se pudo crear el producto','error');
                 }
             })
     }
@@ -61,7 +61,7 @@ const FormCreaProducto = () => {
 
 
     return(
-        <React.Fragment>
+        <div className="content-app">
             <TopNav></TopNav>
             <Container>
                 <h1>Creación de Producto</h1>
@@ -122,7 +122,10 @@ const FormCreaProducto = () => {
                 </Form>
                 <ListarProductos></ListarProductos>
             </Container>
-        </React.Fragment>
+            <div className='content-main-footer'>
+                <p>Proyecto cotizador - Victor Valenzuela</p>
+            </div>
+        </div>  
     )
 }
 

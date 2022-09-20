@@ -77,6 +77,9 @@ const Login = () => {
                                             />
                                         </FormGroup>                                        
                                         <Button type="submit" color="primary" >Ingresar</Button>
+                                        <Link to='/registro'>
+                                            <Button color="success">Registrar</Button>
+                                        </Link>
                                     </Form>
                                 </div>
                             </div>

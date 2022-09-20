@@ -45,3 +45,18 @@ module.exports.eliminar = (req, res) => {
             })
         });
 }
+
+module.exports.actualizar = (req, res) => {
+    ProductoMaestro.findByIdAndUpdate(req.params.id, req.body, { runValidators:true })
+        .then(resp => {
+            res.json({
+                dataProduct: req.datos,
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'Ha ocurrido un error'
+            })
+        });
+}

@@ -57,9 +57,13 @@ const FormCreaCliente = () => {
         }
     }
 
+    const actualizarCliente = () => {
+        
+    }
+
 
     return(
-        <React.Fragment>
+        <div className="content-app">
             <TopNav></TopNav>
             <Container>
                 <h1>Formulario Crea Cliente</h1>
@@ -90,7 +94,10 @@ const FormCreaCliente = () => {
                 </Form>
                 <ListarCliente datos={datos}></ListarCliente>
             </Container>
-        </React.Fragment>
+            <div className='content-main-footer'>
+                <p>Proyecto cotizador - Victor Valenzuela</p>
+            </div>
+        </div>
     )
 }
 

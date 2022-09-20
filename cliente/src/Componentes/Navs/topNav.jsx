@@ -30,6 +30,7 @@ const TopNav = (args) => {
             title:'Salir',
             showCancelButton: true,
             confirmButtonColor: 'red',
+            confirmButtonText:'Si',
             cancelButtonText:'No',
             cancelButtonColor: 'green'
         }).then(resp =>{
@@ -41,58 +42,34 @@ const TopNav = (args) => {
     }
 
     return(
-        <div>
-            <Navbar {...args}>
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
+        <Navbar {...args}>
+            <NavbarBrand><Link to={'/'}>Home</Link></NavbarBrand>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
                 <Nav className="me-auto" navbar>
-                    <NavItem>
-                    <NavLink href="/components/">Components</NavLink>
-                    </NavItem>
-                    <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap">
-                        GitHub
-                    </NavLink>
-                    </NavItem>
+                    <NavItem>                            
+                        <Link to={'/cotizar'}>
+                            <p>Cotizar</p>
+                        </Link>                        
+                    </NavItem>                    
                     <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
-                        Options
-                    </DropdownToggle>
-                    <DropdownMenu right>
-                        <DropdownItem>Option 1</DropdownItem>
-                        <DropdownItem>Option 2</DropdownItem>
-                        <DropdownItem divider />
-                        <DropdownItem>Reset</DropdownItem>
-                    </DropdownMenu>
+                        <DropdownToggle nav caret>
+                            Datos Maestros
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem><Link to={'/creacliente'}><p>Crear Cliente</p></Link></DropdownItem>
+                            <DropdownItem><Link to={'/creaproducto'}><p>Crear Productos</p></Link></DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem></DropdownItem>
+                        </DropdownMenu>
                     </UncontrolledDropdown>
+                    <NavItem>
+                        <p onClick={salir} style={{'cursor':'pointer'}}>Salir</p>
+                    </NavItem>
                 </Nav>
-                <NavbarText>Simple Text</NavbarText>
-                </Collapse>
+            </Collapse>
         </Navbar>
-        </div>
     )
-
-            {/*<div className="barra-nav">
-                <Button color='danger' onClick={salir}>Salir</Button>
-                <Link to={'/'}>
-                    <Button color="primary">Home</Button>
-                </Link>
-                <Link to={'/cotizar'}>                    
-                    <Button color="primary">Cotizar</Button>
-                </Link>
-                <Link to={'/creacliente'}>
-                    <Button color='primary'>Crear Cliente</Button>
-                </Link>
-                <Link to={'/creaproducto'}>
-                    <Button color='primary'>Crear Producto</Button>
-                </Link>
-                <Link to={'/registro'}>
-                    <Button color="primary">Crear Usuario</Button>
-                </Link>
-    </div>*/}            
-        
-    
 }
 
 export default TopNav;
