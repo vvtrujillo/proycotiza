@@ -10,7 +10,9 @@ const EditaClientes = () => {
     const {id} = useParams(); //rescato el id desde el parametro de la URL
     const navigate = useNavigate();  
 
-    const[formulario, setFormulario] = useState([]);
+    const[formulario, setFormulario] = useState([]);    
+    //const [datosPro, setDatosPro] = useState([]);
+    const [recargar, setRecargar] = useState(false); //Para Actualizar los datos de los clientes
 
     const actualizarFormulario = ({target: {name, value}}) => {        
         setFormulario({
@@ -28,36 +30,31 @@ const EditaClientes = () => {
             })            
     },[])
 
-    const editarCliente = (obj) => {
-        console.log('actulizo', obj)
-        axios.put(`/api/v1/clientes/${id}`, obj)
-            .then(resp => {
-                if(!resp.data.error){
-                    setFormulario([...formulario, resp.data.dataCliente]);
-                    Swal.fire('','Se ha actualizado el cliente correctamente','success');
-                    return true
-                }else{
-                    Swal.fire('','No se pudo actualizar el cliente','error');
-                    return false
+    const editarCliente = (objPro) => {        
+        axios.put(`/api/v1/clientes/${id}`, objPro)
+            .then(resp => {                
+                if(!resp.data.error) {                              
+                    setRecargar(!recargar);                
+                    Swal.fire('','Se ha actualizado los datos del Cliente','success');
+                    return true;
+                } else {
+                    Swal.fire('Ooops!!!', resp.data.mensaje, 'error');
+                    return false;
                 }
-            })
+            })       
     }
 
     const guardarCliente = async e =>{
         e.preventDefault();
         let respuesta=false;
-
         
         respuesta = await editarCliente(formulario);
-        navigate('/creacliente')
-        
+        navigate('/creacliente')        
 
         if(respuesta){
             console.log('aca vamos si la respuesta es true');
         }
     }
-
-
 
 
     return(

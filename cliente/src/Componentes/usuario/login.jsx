@@ -77,10 +77,10 @@ const Login = () => {
                                             />
                                         </FormGroup>                                        
                                         <Button type="submit" color="primary" >Ingresar</Button>
-                                        <Link to='/registro'>
+                                        {/*<Link to='/registro'>
                                             <Button color="success">Registrar</Button>
-                                        </Link>
-                                    </Form>
+                                        </Link>*/}
+                                    </Form>                                    
                                 </div>
                             </div>
                         </div>

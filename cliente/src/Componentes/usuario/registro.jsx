@@ -4,6 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Button, Form, FormGroup, Input, Label, Container } from 'reactstrap';
 import { Link, Navigate } from "react-router-dom";
+import TopNav  from "../Navs/topNav";
 
 
 const dataInicial = {
@@ -34,7 +35,7 @@ const Registro = () => {
                 if(!respuesta.data.error) {
                     Swal.fire('Registro', "El usuario se ha registrado exitósamente", "success");
                     setFormulario(dataInicial);
-                    navigate('/login'); //aca vamos directo al login
+                    navigate('/registro'); //aca vamos directo al login
                 } else {
                     Swal.fire('Registro', "Ha ocurrido un error al regitrar el usuario", "error");
                 }
@@ -42,11 +43,13 @@ const Registro = () => {
     }
 
     return (
-        <React.Fragment>
+        <div className="content-app">
+            <TopNav></TopNav>
             <Container>
+                <h1>Usuarios</h1>
                 <Form onSubmit={enviar}>
                     <FormGroup>
-                        <Label>Nombre</Label>
+                        <Label>Nombre:</Label>
                         <Input type="text"
                                 name="nombre"
                                 required 
@@ -55,7 +58,7 @@ const Registro = () => {
                                 placeholder='Nombre....'/>
                     </FormGroup>
                     <FormGroup>
-                        <Label>Apellido</Label>
+                        <Label>Apellido:</Label>
                         <Input type="text"
                                 name="apellido"
                                 required
@@ -64,7 +67,7 @@ const Registro = () => {
                                 placeholder='Apellido...'/>
                     </FormGroup>
                     <FormGroup>
-                        <Label>Email</Label>
+                        <Label>Email:</Label>
                         <Input type="email"
                                 name="email"
                                 required
@@ -73,7 +76,7 @@ const Registro = () => {
                                 placeholder='email...'/>
                     </FormGroup>
                     <FormGroup>
-                        <Label>Clave</Label>
+                        <Label>Clave:</Label>
                         <Input type="password"
                                 name="password"
                                 minLength={6}
@@ -82,7 +85,7 @@ const Registro = () => {
                                 placeholder='Password...'/>
                     </FormGroup>
                     <FormGroup>
-                        <Label>Confirmación de clave</Label>
+                        <Label>Confirmación de clave:</Label>
                         <Input type="password"
                                 name="confirmPassword"
                                 minLength={6}
@@ -92,8 +95,12 @@ const Registro = () => {
                     </FormGroup>
                     <Button type="submit" color="primary">Guardar</Button>
                 </Form>
-            </Container>                               
-        </React.Fragment>
+            </Container>
+                <div className='content-main-footer'>
+                    <p>Proyecto cotizador - Victor Valenzuela</p>
+                </div>
+            </div>
+
     )
 }
 

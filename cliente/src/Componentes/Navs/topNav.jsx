@@ -57,8 +57,9 @@ const TopNav = (args) => {
                             Datos Maestros
                         </DropdownToggle>
                         <DropdownMenu right>
-                            <DropdownItem><Link to={'/creacliente'}><p>Crear Cliente</p></Link></DropdownItem>
-                            <DropdownItem><Link to={'/creaproducto'}><p>Crear Productos</p></Link></DropdownItem>
+                            <DropdownItem><Link to={'/creacliente'}><p>Clientes</p></Link></DropdownItem>
+                            <DropdownItem><Link to={'/creaproducto'}><p>Productos</p></Link></DropdownItem>
+                            <DropdownItem><Link to={'/registro'}><p>Usuarios</p></Link></DropdownItem>
                             <DropdownItem divider />
                             <DropdownItem></DropdownItem>
                         </DropdownMenu>

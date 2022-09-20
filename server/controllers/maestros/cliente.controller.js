@@ -62,9 +62,10 @@ module.exports.eliminar = (req, res) => {
 }
 
 module.exports.actualizar = (req,res) => {
-    ClienteMaestro.findByIdAndUpdate(req.params.id)
+    ClienteMaestro.findByIdAndUpdate(req.params.id, req.body, { runValidators:true })    
         .then(resp => {
             res.json({
+                dataClient: req.body,
                 error: false
             })
         }).catch(e => {

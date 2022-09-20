@@ -15,7 +15,7 @@ const estadoInicial = {
   usuariocreador:''
 }
 
-const FormCrearCoti = () => {
+const FormCrearCoti = () => {  
 
     const[datosCli, setDatosCli] = useState([]);
     const[datosProd, setDatosProd] = useState([]);
@@ -23,16 +23,30 @@ const FormCrearCoti = () => {
 
     const[formulario, setFormulario] = useState(estadoInicial);
 
+    useEffect(() => {
+      if(!usuario) {
+        if(sessionStorage.getItem('USUARIO')){
+          setUsuario(JSON.parse(sessionStorage.getItem('USUARIO')));
+        }else {
+         
+        }
+      } else {
+        sessionStorage.setItem('USUARIO', JSON.stringify(usuario));
+      }
+    }, [])
+
+    const [usuario, setUsuario] = useState(); //estado usuario para trabajar con los datos del usuario login    
+
+    //console.log(usuario.email);
+
     const{id} = useParams();
 
-    const actualizarFormulario = ({target: {name, value}}) => {
-      console.log('formulario',formulario)
+    const actualizarFormulario = ({target: {name, value}}) => {     
       setFormulario({
           ...formulario,
           [name]: value            
       })
-    }
-    
+    }   
 
     //para traer los clientes que estan creados
     useEffect(() => {
@@ -55,7 +69,7 @@ const FormCrearCoti = () => {
     }, [])
     
     const CrearCotizacion = (obj) => {
-      obj.usuariocreador='otrousuario@hotmail.com';
+      obj.usuariocreador=usuario.email;
       obj.valortotal=45555;
       return axios.post('/api/v1/cotizaciones', obj)
         .then(resp => {
@@ -91,6 +105,10 @@ const FormCrearCoti = () => {
         <Container>
           <Form onSubmit={guardarCotizacion}>
             <h1>Crear Cotizacion</h1>
+            <Row style={{'margin':'20px'}}>
+              <Col><Button color="warning" onClick={e => estadoInicial}>Limpiar</Button></Col>
+              <Col><Link to={'/revisarcotizaciones'}><Button color="success">Revisar Cotizaciones</Button></Link></Col>
+            </Row>
             <FormGroup>
                 <Label>Cliente:</Label>
                 <Input type="select"
@@ -136,9 +154,7 @@ const FormCrearCoti = () => {
               </Input>
             </FormGroup>
             <Row>
-              <Col><Button color='primary' type="submit">Generar Cotización</Button></Col>
-              <Col><Button color="warning" onClick={e => estadoInicial}>Limpiar</Button></Col>
-              <Col><Link to={'/revisarcotizaciones'}><Button color="success">Revisar Cotizaciones</Button></Link></Col>
+              <Col><Button color='primary' type="submit">Generar Cotización</Button></Col>              
             </Row>            
           </Form>                
         </Container>

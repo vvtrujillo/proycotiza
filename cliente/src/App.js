@@ -12,6 +12,7 @@ import FormCreaProducto from './Componentes/Maestros/formCreaProducto';
 import ListarCotizaciones from './Componentes/cotizador/listarCotizaciones';
 import ViewCotizacion from './Componentes/cotizador/viewCotizacion';
 import EditaClientes from './Componentes/Maestros/editaClientes';
+import EditaProductos from './Componentes/Maestros/editaProductos';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
         <Route path='/revisarcotizaciones' element={<ListarCotizaciones></ListarCotizaciones>}></Route>
         <Route path='/revisarcotizacion/:id' element={<ViewCotizacion></ViewCotizacion>}></Route>
         <Route path='/editarcliente/:id' element={<EditaClientes></EditaClientes>}></Route>
+        <Route path='/editarproducto/:id' element={<EditaProductos></EditaProductos>}></Route>
       </Routes>      
     </UserContext.Provider>
   );

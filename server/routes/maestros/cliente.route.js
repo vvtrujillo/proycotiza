@@ -6,5 +6,5 @@ module.exports = (app) => {
     app.post('/api/v1/clientes', autenticar, ClienteController.crear);
     app.delete('/api/v1/clientes/:id', autenticar, ClienteController.eliminar);
     app.get('/api/v1/clientes/:id', autenticar, ClienteController.listarPorId);
-    app.put('/api/v1/clientes/:id', autenticar, ClienteController.listarPorId)
+    app.put('/api/v1/clientes/:id', autenticar, ClienteController.actualizar)
 }

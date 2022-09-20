@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import {GrEdit} from 'react-icons/gr'
+import {RiDeleteBin6Line} from 'react-icons/ri'
 
 
 const ListarCliente = () => {
@@ -44,10 +45,6 @@ const ListarCliente = () => {
                 })
     }
 
-    const editarCliente = (id) => {
-        console.log(id);
-    }
-
     return(
         <Container style={{'marginTop': '30px'}}>            
             <Table striped bordered hover>
@@ -67,8 +64,8 @@ const ListarCliente = () => {
                                 <td>
                                     <Link to={`/editarcliente/${j._id}`}>
                                         <GrEdit style={{'cursor':'pointer'}}></GrEdit>
-                                    </Link>                         
-                                    <Button color="danger" onClick={e => Eliminar(j.razonsocial, j._id)}>Eliminar</Button>
+                                    </Link>
+                                    <RiDeleteBin6Line style={{'marginLeft':'10px','cursor':'pointer'}} color='red' onClick={e => Eliminar(j.razonsocial, j._id)}></RiDeleteBin6Line>                                    
                                 </td>
                             </tr>
                         )

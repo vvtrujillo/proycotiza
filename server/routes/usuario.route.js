@@ -1,4 +1,5 @@
 const UsuarioController = require('../controllers/usuario.controller');
+//const {autenticar} = require('../../config/jwt.config');
 
 module.exports = (app) => {
     app.post('/api/v1/usuario', UsuarioController.registrar);

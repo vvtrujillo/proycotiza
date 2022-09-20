@@ -15,16 +15,29 @@ module.exports.listar=(req, res) => {
         })
 }
 
+module.exports.listarPorId = (req,res) => {    
+    ProductoMaestro.findById(req.params.id)
+        .then(resp =>{
+            res.json({
+                dataProduct: resp,
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'Ha ocurrido un error al traer los clientes.'
+            })
+        })
+}
+
 module.exports.crear = (req, res) => {
     ProductoMaestro.create(req.body)
-        .then(resp => {
-            console.log('crea producto',req.body)
+        .then(resp => {            
             res.json({
                 dataProduct:resp,
                 error: false
             })
-        }).catch(e => {
-            console.log('crea producto',req.body,'error',e)
+        }).catch(e => {            
             res.json({
                 error: true,
                 mensaje: 'Ha ocurrido un error al crear un Producto'
@@ -50,7 +63,7 @@ module.exports.actualizar = (req, res) => {
     ProductoMaestro.findByIdAndUpdate(req.params.id, req.body, { runValidators:true })
         .then(resp => {
             res.json({
-                dataProduct: req.datos,
+                dataProduct: req.body,
                 error: false
             })
         }).catch(e => {

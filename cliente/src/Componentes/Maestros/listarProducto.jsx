@@ -5,6 +5,8 @@ import { Container,Table, Button } from "reactstrap";
 import { Link, useNavigate, Route, Routes } from "react-router-dom";
 import axios from "axios";
 import FormCreaProducto from "./formCreaProducto";
+import { GrEdit } from "react-icons/gr";
+import {RiDeleteBin6Line} from 'react-icons/ri'
 
 const ListarProductos = () => {
 
@@ -94,8 +96,10 @@ const ListarProductos = () => {
                                 <td>{j.unidad}</td>
                                 <td>{j.valor}</td>
                                 <td>
-                                    <Button color="primary">Editar</Button>                                                                 
-                                    <Button color="danger" onClick={e => Eliminar(j.nombre, j._id)}>Eliminar</Button>
+                                    <Link to={`/editarproducto/${j._id}`}>
+                                        <GrEdit style={{'cursor':'pointer'}}></GrEdit>
+                                    </Link>
+                                    <RiDeleteBin6Line style={{'marginLeft':'10px','cursor':'pointer'}} color='red' onClick={e => Eliminar(j.nombre, j._id)}></RiDeleteBin6Line>                                    
                                 </td>
                             </tr>
                         )
