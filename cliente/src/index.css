@@ -28,7 +28,12 @@
   height: 200px;
   width: 200px;  
   justify-content: center;
-  align-items: center
+  align-items: center;
+  flex-direction: row;
+  margin-top: 40px;
+}
+.content-main-icon button{
+  margin: 30px;
 }
 .content-main-footer{
   height: 50px;

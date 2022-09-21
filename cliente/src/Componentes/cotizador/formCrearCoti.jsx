@@ -44,8 +44,9 @@ const FormCrearCoti = () => {
     const actualizarFormulario = ({target: {name, value}}) => {     
       setFormulario({
           ...formulario,
-          [name]: value            
+          [name]: value
       })
+      console.log('Formulario',formulario)
     }   
 
     //para traer los clientes que estan creados
@@ -67,6 +68,8 @@ const FormCrearCoti = () => {
             }
           })
     }, [])
+
+    var idProducto;
     
     const CrearCotizacion = (obj) => {
       obj.usuariocreador=usuario.email;
@@ -104,9 +107,11 @@ const FormCrearCoti = () => {
         <TopNav></TopNav>
         <Container>
           <Form onSubmit={guardarCotizacion}>
-            <h1>Crear Cotizacion</h1>
-            <Row style={{'margin':'20px'}}>
-              <Col><Button color="warning" onClick={e => estadoInicial}>Limpiar</Button></Col>
+            <div className="content-main-title">
+              <h1>Crear Cotizacion</h1>
+            </div>            
+            <Row style={{'marginBlockEnd':'20px'}}>
+              {/*<Col><Button color="warning" onClick={e => estadoInicial}>Limpiar</Button></Col>*/}
               <Col><Link to={'/revisarcotizaciones'}><Button color="success">Revisar Cotizaciones</Button></Link></Col>
             </Row>
             <FormGroup>
@@ -115,13 +120,13 @@ const FormCrearCoti = () => {
                         required
                         name='cliente'
                         value={formulario.cliente}
-                        onChange={actualizarFormulario}
-                >
-                    <option></option>
+                        onChange={actualizarFormulario}>
+                        <option></option>
                     {
                         datosCli.map((j,i) =>
-                        <option>{j.razonsocial}</option>
+                        <option value={j._id}>{j.razonsocial}</option>                        
                         )
+                        
                     }
                 </Input>
             </FormGroup>
@@ -131,12 +136,11 @@ const FormCrearCoti = () => {
                         required
                         name="producto"
                         value={formulario.producto}
-                        onChange={actualizarFormulario}
-                >
-                  <option></option>
+                        onChange={actualizarFormulario}>
+                        <option></option>
                     {
                         datosProd.map((j,i) =>
-                        <option>{j.nombre}</option>
+                        <option value={j._id}>{j.nombre}</option>
                         )
                     }
                 </Input>
@@ -149,8 +153,7 @@ const FormCrearCoti = () => {
                       min={0}
                       name='cantidad'
                       value={formulario.cantidad}
-                      onChange={actualizarFormulario}                      
-                      >
+                      onChange={actualizarFormulario}>
               </Input>
             </FormGroup>
             <Row>

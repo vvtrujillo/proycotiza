@@ -22,13 +22,11 @@ module.exports.listar=(req, res) => {
 module.exports.crear = (req, res) => {
     Cotizacion.create(req.body)
         .then(resp => {
-            console.log('crea producto',req.body)
             res.json({
-                dataCotizacion:resp,
+                dataCotizacion: resp,
                 error: false
             })
-        }).catch(e => {
-            console.log('crea producto',req.body,'error',e)
+        }).catch(e => {            
             res.json({
                 error: true,
                 mensaje: 'Ha ocurrido un error al crear una cotización'

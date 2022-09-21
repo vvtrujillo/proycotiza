@@ -46,7 +46,9 @@ const Registro = () => {
         <div className="content-app">
             <TopNav></TopNav>
             <Container>
-                <h1>Usuarios</h1>
+                <div className="content-main-title">
+                    <h1>Usuarios</h1>
+                </div>                
                 <Form onSubmit={enviar}>
                     <FormGroup>
                         <Label>Nombre:</Label>

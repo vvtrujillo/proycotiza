@@ -66,7 +66,9 @@ const FormCreaCliente = () => {
         <div className="content-app">
             <TopNav></TopNav>
             <Container>
-                <h1>Formulario Crea Cliente</h1>
+                <div className="content-main-title">
+                    <h1>Crear Cliente</h1>
+                </div>
                 <Form onSubmit={guardarCliente}>
                     <FormGroup>
                         <Label>Razon Social:</Label>

@@ -1,18 +1,6 @@
 import React, {useState} from "react"
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem,
-    NavbarText,
-  } from 'reactstrap';
+import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,UncontrolledDropdown,DropdownToggle,DropdownMenu,
+    DropdownItem,NavbarText} from 'reactstrap';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -26,13 +14,14 @@ const TopNav = (args) => {
     const navigate = useNavigate();
     const salir = (e) => {
         Swal.fire({
-            text: 'Seguro que desea cerrar sesión??',
+            text: 'Seguro que desea cerrar sesión?',
             title:'Salir',
+            icon:'question',
             showCancelButton: true,
-            confirmButtonColor: 'red',
+            confirmButtonColor: '#DF362D',
             confirmButtonText:'Si',
             cancelButtonText:'No',
-            cancelButtonColor: 'green'
+            cancelButtonColor: '#5A75E5'
         }).then(resp =>{
             if(resp.isConfirmed){
                 sessionStorage.removeItem('USUARIO');

@@ -64,7 +64,9 @@ const FormCreaProducto = () => {
         <div className="content-app">
             <TopNav></TopNav>
             <Container>
-                <h1>Creación de Producto</h1>
+                <div className="content-main-title">
+                    <h1>Crear Producto</h1>
+                </div>                
                 <Form onSubmit={guardarProducto}>
                 <FormGroup>
                         <Label>código:</Label>

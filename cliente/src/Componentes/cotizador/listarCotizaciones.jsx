@@ -26,7 +26,9 @@ const ListarCotizaciones = () => {
         <div className="content-app">
             <TopNav></TopNav>
             <Container>
-                <h1>Listado de Cotizaciones</h1>
+                <div className="content-main-title">
+                    <h1>Listado de Cotizaciones</h1>
+                </div>                
                 <Table striped bordered hover style={{'marginTop':'20px'}}>
                     <thead>
                         <tr>
