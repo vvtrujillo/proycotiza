@@ -48,7 +48,7 @@ const TopNav = (args) => {
                         <DropdownMenu right>
                             <DropdownItem><Link to={'/creacliente'}><p>Clientes</p></Link></DropdownItem>
                             <DropdownItem><Link to={'/creaproducto'}><p>Productos</p></Link></DropdownItem>
-                            <DropdownItem><Link to={'/registro'}><p>Usuarios</p></Link></DropdownItem>
+                            <DropdownItem><Link to={'/usuarios'}><p>Usuarios</p></Link></DropdownItem>
                             <DropdownItem divider />
                             <DropdownItem></DropdownItem>
                         </DropdownMenu>

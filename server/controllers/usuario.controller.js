@@ -20,6 +20,21 @@ module.exports.registrar = (req, res) => {
         });
 }
 
+module.exports.listar = (req,res) => {
+    Usuario.find()
+        .then(resp =>{
+            res.json({
+                dataUsuarios: resp,
+                error: false
+            })
+        }).catch(e => {
+            res.json({
+                error: true,
+                mensaje: 'error al listar los usuarios.'
+            })
+        })
+}
+
 module.exports.login = (req, res) => {
     Usuario.findOne({email: req.body.username})    
         .then(usuario => {

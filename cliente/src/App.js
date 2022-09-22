@@ -13,6 +13,7 @@ import ListarCotizaciones from './Componentes/cotizador/listarCotizaciones';
 import ViewCotizacion from './Componentes/cotizador/viewCotizacion';
 import EditaClientes from './Componentes/Maestros/editaClientes';
 import EditaProductos from './Componentes/Maestros/editaProductos';
+import ListarUsuarios from './Componentes/Maestros/listarUsuarios';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
         <Route path='/revisarcotizacion/:id' element={<ViewCotizacion></ViewCotizacion>}></Route>
         <Route path='/editarcliente/:id' element={<EditaClientes></EditaClientes>}></Route>
         <Route path='/editarproducto/:id' element={<EditaProductos></EditaProductos>}></Route>
+        <Route path='/usuarios/' element={<ListarUsuarios></ListarUsuarios>}></Route>
       </Routes>      
     </UserContext.Provider>
   );
